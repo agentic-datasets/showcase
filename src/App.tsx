@@ -1,6 +1,7 @@
 import { useMemo } from 'react'
 import Mark from './components/Mark'
 import Disclaimer from './components/Disclaimer'
+import HowItWorks from './components/HowItWorks'
 import ThemeToggle from './components/ThemeToggle'
 import Admission from './showcases/Admission'
 import LoadBearing from './showcases/LoadBearing'
@@ -86,6 +87,7 @@ export default function App() {
           computed here as you click.
         </p>
         <nav className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <a href="#how">How this works</a>
           <a href={SITE}>Agentic Datasets</a>
           <a href={DOCS}>Reference documentation</a>
           <a href={ORG}>Repositories</a>
@@ -141,12 +143,21 @@ export default function App() {
         </div>
       </section>
 
+      <section id="how" className="border-t" style={rule}>
+        <div className="mx-auto w-full max-w-3xl px-6 py-14 sm:py-20">
+          <h2 className="mb-6 text-xs font-semibold uppercase tracking-[0.18em]" style={faint}>
+            How this works
+          </h2>
+          <HowItWorks />
+        </div>
+      </section>
+
       {SHOWCASES.map(({ id, n, title, assertions, lede, Component }, i) => (
         <section
           key={id}
           id={id}
           className="border-t"
-          style={i % 2 === 1 ? { ...rule, background: 'var(--ground-alt)' } : rule}
+          style={i % 2 === 0 ? { ...rule, background: 'var(--ground-alt)' } : rule}
         >
           <div className="mx-auto w-full max-w-3xl px-6 py-14 sm:py-20">
             <div className="mb-2 flex items-baseline gap-3">
