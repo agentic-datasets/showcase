@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.local
+.DS_Store
+
+# docs/ is the built site and IS committed — GitHub Pages serves it.
+!docs/

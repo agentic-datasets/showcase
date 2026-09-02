@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/showcase/favicon.ico" sizes="any" />
+    <link rel="icon" href="/showcase/brand/agentic-dataset-mark.svg" type="image/svg+xml" />
+    <title>Agentic Dataset Showcases</title>
+    <meta
+      name="description"
+      content="Five showcases running the normative agentic-dataset conformance vectors in the browser, against a TypeScript subject that reproduces the Python baseline exactly."
+    />
+    <link rel="canonical" href="https://agentic-datasets.github.io/showcase/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Agentic Dataset Showcases" />
+    <meta
+      property="og:description"
+      content="The 15-assertion contract, executed client-side against the real CC0 vectors."
+    />
+    <meta property="og:url" content="https://agentic-datasets.github.io/showcase/" />
+    <meta
+      property="og:image"
+      content="https://agentic-datasets.github.io/showcase/brand/agentic-dataset-mark-512.png"
+    />
+    <meta name="twitter:card" content="summary" />
+    <link
+      rel="preload"
+      href="/showcase/fonts/roboto-slab-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script>
+      // Applied before first paint so a reader who chose a theme never sees the
+      // other one flash. Deliberately duplicates ThemeToggle.tsx: by the time
+      // the bundle runs, the wrong theme has already been painted.
+      (function () {
+        try {
+          var t = localStorage.getItem('theme')
+          if (t === 'light' || t === 'dark') {
+            document.documentElement.setAttribute('data-theme', t)
+          }
+        } catch (e) {}
+      })()
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
