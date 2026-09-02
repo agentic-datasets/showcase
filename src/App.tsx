@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import Mark from './components/Mark'
+import Disclaimer from './components/Disclaimer'
 import ThemeToggle from './components/ThemeToggle'
 import Admission from './showcases/Admission'
 import LoadBearing from './showcases/LoadBearing'
@@ -197,14 +198,20 @@ export default function App() {
       <footer className="border-t" style={rule}>
         <div className="mx-auto w-full max-w-3xl px-6 py-10 text-sm leading-relaxed" style={faint}>
           <p>
-            The worlds and vectors are CC0 and copied unmodified from the{' '}
-            <a href={`${ORG}/reference`}>reference</a> repository. The showcase source is MIT; the
-            mark is not &mdash; see the{' '}
-            <a href={`${ORG}/reference/blob/main/brand/README.md`}>brand notes</a>.
-          </p>
-          <p className="mt-3">
             <a href={SITE}>agentic-datasets.github.io</a>
           </p>
+          <Disclaimer
+            ownership={
+              <>
+                Showcase source and all original code{' '}
+                <strong style={{ color: 'var(--ink-muted)' }}>&copy; 2026 Alexander Chernov</strong>,
+                MIT. The worlds and conformance vectors are CC0 1.0, copied unmodified from the{' '}
+                <a href={`${ORG}/reference`}>reference</a> distribution; Roboto Slab is Apache 2.0.
+                The mark is covered by none of those and is all rights reserved &mdash; see the{' '}
+                <a href={`${ORG}/reference/blob/main/brand/README.md`}>brand notes</a>.
+              </>
+            }
+          />
         </div>
       </footer>
     </div>
