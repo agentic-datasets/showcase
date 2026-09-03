@@ -36,3 +36,22 @@ check: ## Verify the built payload looks like a site
 
 clean: ## Remove dependencies and build output
 	rm -rf node_modules docs
+
+# ── edge deploy ──────────────────────────────────────────────────────────────
+# agenticdatasets.org is served by Caddy on the Toronto edge, from one tree:
+# the org site at the apex, showcase/ and reference/ beneath it. Each repo
+# owns its own subtree; see dk-semantic-backend-host/tools/edge-sites.sh for
+# the vhost side.
+EDGE        ?= root@172.105.24.72
+REMOTE_ROOT ?= /var/www/agenticdatasets/showcase
+RSYNC_FLAGS := -az --delete --chmod=D755,F644 --exclude .git --exclude .keep
+
+.PHONY: deploy deploy-dry
+
+deploy: build ## Publish the showcases to the edge
+	@test -f docs/index.html || { echo "refusing: no docs/index.html -- build first" >&2; exit 1; }
+	rsync $(RSYNC_FLAGS) docs/ $(EDGE):$(REMOTE_ROOT)/
+	@echo "→ https://agenticdatasets.org/showcase/"
+
+deploy-dry: build ## Show what deploy would change, without changing it
+	rsync -n -v $(RSYNC_FLAGS) docs/ $(EDGE):$(REMOTE_ROOT)/
