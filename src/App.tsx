@@ -15,8 +15,8 @@ const faint = { color: 'var(--ink-faint)' }
 const rule = { borderColor: 'var(--rule)' }
 
 const ORG = 'https://github.com/agentic-datasets'
-const DOCS = 'https://agentic-datasets.github.io/reference/'
-const SITE = 'https://agentic-datasets.github.io/'
+const DOCS = '/reference/'
+const SITE = '/'
 
 /** What the Python subject reports from the same vectors, in the reference
  *  repository. The point of this page is that the numbers below match. */
@@ -209,7 +209,7 @@ export default function App() {
       <footer className="border-t" style={rule}>
         <div className="mx-auto w-full max-w-3xl px-6 py-10 text-sm leading-relaxed" style={faint}>
           <p>
-            <a href={SITE}>agentic-datasets.github.io</a>
+            <a href={SITE}>agenticdatasets.org</a>
           </p>
           <Disclaimer
             ownership={
