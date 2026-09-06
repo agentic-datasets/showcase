@@ -40,8 +40,8 @@ clean: ## Remove dependencies and build output
 # ── edge deploy ──────────────────────────────────────────────────────────────
 # agenticdatasets.org is served by Caddy on the Toronto edge, from one tree:
 # the org site at the apex, showcase/ and reference/ beneath it. Each repo
-# owns its own subtree; see dk-semantic-backend-host/tools/edge-sites.sh for
-# the vhost side.
+# owns its own subtree. The vhost side lives in the edge host's own
+# provisioning repo, in tools/edge-sites.sh.
 EDGE        ?= root@172.105.24.72
 REMOTE_ROOT ?= /var/www/agenticdatasets/showcase
 RSYNC_FLAGS := -az --delete --chmod=D755,F644 --exclude .git --exclude .keep
