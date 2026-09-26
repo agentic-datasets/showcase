@@ -16,7 +16,7 @@ const PRINCIPALS = [
 const REQUESTS = [
   'Compare the recovery of batches B001 and B002',
   'Calculate the yield for batch B003',
-  'Flag anomalous batches by recovery',
+  'Detect outliers in batch recovery',
   'Find batches run last week',
 ]
 

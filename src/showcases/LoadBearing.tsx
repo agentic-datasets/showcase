@@ -25,7 +25,7 @@ const ATTEMPTS: Array<{ label: string; why: string; step: Step }> = [
     step: {
       op: 'request',
       principal: 'analyst',
-      text: 'Flag anomalous batches by recovery',
+      text: 'Detect outliers in batch recovery',
       capability: 'detect_outliers',
     },
   },
